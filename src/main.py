@@ -1,8 +1,6 @@
 from typing import runtime_checkable, Protocol
 from dataclasses import dataclass
 import random, time, json
-
-
 @dataclass
 class Task:
     """
@@ -43,7 +41,7 @@ class ApiTaskSource:
             Task(id=103, payload={"order_id": random.randint(1001, 2000), "amount": random.randint(1000, 2000)}),
             Task(id=104, payload={"order_id": random.randint(1001, 2000), "amount": random.randint(1000, 2000)})
         ]
-
+    
 
 class FileTaskSource:
     """Task source that reads and parses task data from JSON file"""
