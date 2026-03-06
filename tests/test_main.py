@@ -1,7 +1,7 @@
 from src.main import *
 import pytest, json
 
-def test_run_tasks():
+def test_run_tasks(tmp_path):
     """Test that all task sources return valid Task objects"""
 
     data = [
@@ -28,11 +28,13 @@ def test_run_tasks():
         }
     ]
 
-    filename = "data.json"
-
-    with open("data.json", "w", encoding="utf-8") as f:
+    dir = tmp_path/"data".mkdir()
+    file = dir/"data.json"
+    
+    with open(file, "w", encoding="utf-8") as f:
         json.dump(data, f)
-    sources =[GeneratorTaskSource(), ApiTaskSource(), FileTaskSource(filename)]
+
+    sources =[GeneratorTaskSource(), ApiTaskSource(), FileTaskSource(file)]
 
     for source in sources:
         tasks = run_tasks(source)
