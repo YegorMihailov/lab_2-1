@@ -20,7 +20,7 @@
 
 - FileTaskSource. Возвращает список задач из JSON-файла. 
 
-## Архитектурные решения
+## Технические решения
 
 - Контракт описан с помощью typing.Protocol. Классы GeneratorTaskSource, ApiTaskSource, FileTaskSource не наследуются от TaskSource
 
