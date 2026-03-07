@@ -1,11 +1,12 @@
 from typing import runtime_checkable, Protocol
 from dataclasses import dataclass
 import random, time, json
+
+
 @dataclass
 class Task:
-    """
-    Unit of work with id and data payload
-    """
+    """Unit of work with id and data payload"""
+
     id: int
     payload: dict
 
@@ -24,8 +25,8 @@ class GeneratorTaskSource:
 
     def get_tasks(self) -> list[Task]:
         """Generate random tasks"""
+
         tasks = [Task(id=random.randint(1, 100), payload={"order_id": random.randint(1, 1000), "amount": random.randint(100, 1000)}) for i in range(random.randint(1, 5))]
-        
         return tasks
 
 
